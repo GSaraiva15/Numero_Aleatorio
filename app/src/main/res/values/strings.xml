@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Numero_Aleatorio</string>
+    <string name="Title">Choose a number between 1 and 10</string>
+    <string name="bottun">Try</string>
+    <string name="resultado">The result is:</string>
+    <string name="numero_tentativas">Attemps:</string>
+    <string name="number">write a number</string>
 </resources>
