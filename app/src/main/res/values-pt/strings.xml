@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Numero_Aleatorio</string>
+    <string name="Title">Escreva um número entre 1 e 10</string>
+    <string name="bottun">Verificar</string>
+    <string name="resultado">O resultado é:</string>
+    <string name="numero_tentativas">Tentativas</string>
+    <string name="number">Escreva um número</string>
+</resources>

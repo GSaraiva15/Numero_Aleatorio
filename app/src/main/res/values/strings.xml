@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Numero_Aleatorio</string>
+    <string name="app_name" translatable="false">Numero_Aleatorio</string>
     <string name="Title">Choose a number between 1 and 10</string>
     <string name="bottun">Try</string>
     <string name="resultado">The result is:</string>
