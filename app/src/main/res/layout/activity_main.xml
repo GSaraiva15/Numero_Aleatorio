@@ -34,6 +34,7 @@
         android:id="@+id/buttonVerificar"
         android:layout_width="99dp"
         android:layout_height="50dp"
+        android:onClick="verificaNumero"
         android:text="@string/bottun"
         app:layout_constraintBaseline_toBaselineOf="@+id/editTextNumero"
         app:layout_constraintEnd_toEndOf="@+id/textViewEscolha" />

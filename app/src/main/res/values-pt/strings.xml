@@ -4,6 +4,8 @@
     <string name="Title">Escreva um número entre 1 e 10</string>
     <string name="bottun">Verificar</string>
     <string name="resultado">O resultado é:</string>
-    <string name="numero_tentativas">Tentativas</string>
+    <string name="numero_tentativas">Tentativas:</string>
     <string name="number">Escreva um número</string>
+    <string name="numero_obrigatorio">Tem de escolher um número!</string>
+    <string name="numero_limites">O número tem de estar entre 1 e 10!</string>
 </resources>

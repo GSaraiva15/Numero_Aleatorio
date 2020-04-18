@@ -5,4 +5,6 @@
     <string name="resultado">The result is:</string>
     <string name="numero_tentativas">Attemps:</string>
     <string name="number">write a number</string>
+    <string name="numero_obrigatorio">You have to choose a number!</string>
+    <string name="numero_limites">The number must be between 1 and 10!</string>
 </resources>
