@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
             else if (numeroAdivinhar > numero){
                 soma++;
                 textViewMostrarTentativas.setText(String.valueOf(soma));
-                textViewMostrarResultado.setText("You are wrong! the number is bigger!");
+                textViewMostrarResultado.setText(R.string.resultado_errado_maior);
                 textViewMostrarResultado.setTextColor(Color.RED);
             }
             else{
