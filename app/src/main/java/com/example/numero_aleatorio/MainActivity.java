@@ -2,14 +2,11 @@ package com.example.numero_aleatorio;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private int numeroAdivinhar =NumerosAleatorios.proximoNumero();
@@ -48,18 +45,27 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewMostrarTentativas = findViewById(R.id.textViewMostrarTentativas);
 
 
-        if (numeroAdivinhar == numero) {
-            soma++;
-            textViewMostrarResultado.setText(R.string.resultado_correto);
-            textViewMostrarResultado.setTextColor(Color.GREEN);
-            textViewMostrarResultado.requestFocus();
-        } else {
+
+            if(numeroAdivinhar < numero){
             soma++;
             textViewMostrarTentativas.setText(String.valueOf(soma));
-            textViewMostrarResultado.setText(R.string.resultado_errado);
+            textViewMostrarResultado.setText(R.string.resultado_errado_menor);
             textViewMostrarResultado.setTextColor(Color.RED);
-
         }
+            else if (numeroAdivinhar > numero){
+                soma++;
+                textViewMostrarTentativas.setText(String.valueOf(soma));
+                textViewMostrarResultado.setText("You are wrong! the number is bigger!");
+                textViewMostrarResultado.setTextColor(Color.RED);
+            }
+            else{
+                soma++;
+                textViewMostrarResultado.setText(R.string.resultado_correto);
+                textViewMostrarResultado.setTextColor(Color.GREEN);
+                textViewMostrarResultado.requestFocus();
+            }
 
+            }
     }
-}
+
+
