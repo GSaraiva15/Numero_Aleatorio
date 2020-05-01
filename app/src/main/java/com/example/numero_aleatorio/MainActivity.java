@@ -1,5 +1,6 @@
 package com.example.numero_aleatorio;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
@@ -16,6 +17,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+    static final String STATE_NUMEROADIVINHAR = "numeroAdivinhar";
+    static final String STATE_SOMA = "soma";
+
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+
+            // Save the user's current game state
+            savedInstanceState.putInt(STATE_NUMEROADIVINHAR, numeroAdivinhar);
+            savedInstanceState.putInt(STATE_SOMA, soma);
+
+            // Always call the superclass so it can save the view hierarchy state
+            super.onSaveInstanceState(savedInstanceState);
+
+    }
+
+    public void onRestoreInstanceState(Bundle savedInstanceState){
+        numeroAdivinhar = savedInstanceState.getInt(STATE_NUMEROADIVINHAR);
+        soma = savedInstanceState.getInt(STATE_SOMA);
     }
     int soma;
 
@@ -46,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            if(numeroAdivinhar < numero){
-            soma++;
-            textViewMostrarTentativas.setText(String.valueOf(soma));
-            textViewMostrarResultado.setText(R.string.resultado_errado_menor);
-            textViewMostrarResultado.setTextColor(Color.RED);
-        }
+            if(numeroAdivinhar == numero){
+                soma++;
+                textViewMostrarResultado.setText(R.string.resultado_correto);
+                textViewMostrarResultado.setTextColor(Color.GREEN);
+                textViewMostrarTentativas.setText(String.valueOf(soma));
+         }
             else if (numeroAdivinhar > numero){
                 soma++;
                 textViewMostrarTentativas.setText(String.valueOf(soma));
@@ -60,12 +81,11 @@ public class MainActivity extends AppCompatActivity {
             }
             else{
                 soma++;
-                textViewMostrarResultado.setText(R.string.resultado_correto);
-                textViewMostrarResultado.setTextColor(Color.GREEN);
-                textViewMostrarResultado.requestFocus();
-            }
-
+                textViewMostrarTentativas.setText(String.valueOf(soma));
+                textViewMostrarResultado.setText(R.string.resultado_errado_menor);
+                textViewMostrarResultado.setTextColor(Color.RED);
             }
     }
+}
 
 
