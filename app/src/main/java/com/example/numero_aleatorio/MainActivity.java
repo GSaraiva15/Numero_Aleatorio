@@ -1,8 +1,10 @@
 package com.example.numero_aleatorio;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         TextView textViewMostrarResultado = findViewById(R.id.textViewMostrarResultado);
-        TextView textViewMostrarTentativas = findViewById(R.id.textViewMostrarTentativas);
+        final TextView textViewMostrarTentativas = findViewById(R.id.textViewMostrarTentativas);
 
 
 
@@ -72,6 +74,29 @@ public class MainActivity extends AppCompatActivity {
                 textViewMostrarResultado.setText(R.string.resultado_correto);
                 textViewMostrarResultado.setTextColor(Color.GREEN);
                 textViewMostrarTentativas.setText(String.valueOf(soma));
+
+                AlertDialog.Builder  builder= new AlertDialog.Builder(this);
+                builder.setTitle("Novo Jogo");
+                builder.setMessage("Quer jogar novamente?");
+                builder.setCancelable(false);
+                builder.setPositiveButton("sim", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        novoJogo();
+                        textViewMostrarTentativas.setText("Tentativas: 0");
+                        textViewMostrarTentativas.setText("");
+
+                    }
+                });
+
+
+                builder.setNegativeButton("não", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                });
+                builder.show();
          }
             else if (numeroAdivinhar > numero){
                 soma++;
@@ -86,6 +111,12 @@ public class MainActivity extends AppCompatActivity {
                 textViewMostrarResultado.setTextColor(Color.RED);
             }
     }
-}
+
+    private void novoJogo() {
+            numeroAdivinhar = NumerosAleatorios.proximoNumero();
+            soma = 0;
+        }
+    }
+
 
 
